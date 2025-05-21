@@ -97,3 +97,14 @@ Future<void> _captureImage() async {
       _controller?.setFocusPoint(offset);
       _controller?.setExposurePoint(offset);
     }
+
+IconData _flashIcon() {
+      switch (_flashMode) {
+        case FlashMode.auto:
+          return Icons.flash_auto;
+        case FlashMode.always:
+          return Icons.flash_on;
+        default:
+          return Icons.flash_off;
+      }
+    }
