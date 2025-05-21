@@ -17,4 +17,13 @@ class HeaderWithSearchBox extends StatefulWidget {
   State<HeaderWithSearchBox> createState() => _HeaderWithSearchBoxState();
 }
 
+class _HeaderWithSearchBoxState extends State<HeaderWithSearchBox> {
+  File? _imageFile;
+  String? _selectedAddress; 
+
+  Future<void> _requestPermissions() async {
+    await Permission.camera.request();
+    await Permission.storage.request();
+    await Permission.manageExternalStorage.request();
+  }
 
