@@ -55,4 +55,23 @@ class _MapPageState extends State<MapPage> {
     }
   }
 
+Future<Position> getPermissions() async {
+    if (!await Geolocator.isLocationServiceEnabled()) {
+      throw 'Location service belum aktif';
+    }
+
+    LocationPermission perm = await Geolocator.checkPermission();
+    if (perm == LocationPermission.denied) {
+      perm = await Geolocator.requestPermission();
+
+      if (perm == LocationPermission.denied) {
+        throw 'Izin lokasi ditolak';
+      }
+      if (perm == LocationPermission.deniedForever) {
+        throw 'Izin lokasi ditolak permanen';
+      }
+    }
+
+    return Geolocator.getCurrentPosition();
+  }
 
