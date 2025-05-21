@@ -108,3 +108,19 @@ IconData _flashIcon() {
           return Icons.flash_off;
       }
     }
+
+Widget _circleButton(IconData icon, VoidCallback onTap, {double size = 50}) {
+      return ClipOval(
+        child: Material(
+          color: Colors.white24,
+          child: InkWell(
+            onTap: onTap,
+            child: SizedBox(
+              width: size,
+              height: size,
+              child: Icon(icon, color: Colors.white,),
+            ),
+          ),
+        ),
+      );
+    }
