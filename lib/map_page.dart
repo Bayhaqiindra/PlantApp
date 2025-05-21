@@ -75,3 +75,23 @@ Future<Position> getPermissions() async {
     return Geolocator.getCurrentPosition();
   }
 
+String formatAddress(Placemark p) {
+  final parts = <String>[];
+
+  void addIfNotEmptyAndNotDuplicate(String? value) {
+    if (value != null && value.isNotEmpty && !parts.contains(value)) {
+      parts.add(value);
+    }
+  }
+
+  addIfNotEmptyAndNotDuplicate(p.name);
+  addIfNotEmptyAndNotDuplicate(p.street);
+  addIfNotEmptyAndNotDuplicate(p.subLocality);
+  addIfNotEmptyAndNotDuplicate(p.locality);
+  addIfNotEmptyAndNotDuplicate(p.administrativeArea);
+  addIfNotEmptyAndNotDuplicate(p.postalCode);
+  addIfNotEmptyAndNotDuplicate(p.country);
+
+  return parts.join(', ');
+}
+
