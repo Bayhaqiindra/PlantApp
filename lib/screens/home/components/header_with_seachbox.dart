@@ -76,3 +76,15 @@ Future<void> _takePicture() async {
           ),
     );
   }
+
+Future<void> _openMapAndSelectAddress() async {
+    final selectedAddress = await Navigator.push<String?>(
+      context,
+      MaterialPageRoute(builder: (_) => const MapPage()),
+    );
+    if (selectedAddress != null && selectedAddress.isNotEmpty) {
+      setState(() {
+        _selectedAddress = selectedAddress;
+      });
+    }
+  }
