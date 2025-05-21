@@ -59,3 +59,41 @@ class _CameraPageState extends State<CameraPage> {
         });
       }
     }
+
+Future<void> _captureImage() async {
+      final XFile file = await _controller!.takePicture();
+      Navigator.pop(context, File(file.path));
+    }
+
+    void _switchCamera() async {
+      final nextIndex = (_selectedCameraIdx + 1) % _cameras.length;
+      await _setupCamera(nextIndex);
+    }
+
+    void _toogleFlash() async {
+      FlashMode next = _flashMode == FlashMode.off
+          ? FlashMode.auto
+          : _flashMode == FlashMode.auto
+              ? FlashMode.always
+              : FlashMode.off;
+
+      await _controller!.setFlashMode(next);
+      setState(() => _flashMode = next);
+    }
+
+    void _setZoom(double value) async {
+      if(!_isZoomSupported) return;
+      _zoom = value.clamp(_minZoom, _maxZoom);
+      await _controller!.setZoomLevel(_zoom);
+      setState(() {});
+    }
+
+    void _handleTap(TapDownDetails details, BoxConstraints constraint){
+      final offset = Offset(
+        details.localPosition.dx / constraint.maxWidth,
+        details.localPosition.dy / constraint.maxHeight
+      );
+
+      _controller?.setFocusPoint(offset);
+      _controller?.setExposurePoint(offset);
+    }
