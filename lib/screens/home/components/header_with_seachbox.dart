@@ -35,3 +35,44 @@ Future<void> _pickFromGallery() async {
       setState(() => _imageFile = saved);
     }
   }
+
+Future<void> _takePicture() async {
+    await _requestPermissions();
+    final File? result = await Navigator.push<File?>(
+      context,
+      MaterialPageRoute(builder: (_) => const CameraPage()),
+    );
+    if (result != null) {
+      final saved = await StorageHelper.saveImage(result, 'camera');
+      setState(() => _imageFile = saved);
+    }
+  }
+
+  void _showImageSourceActionSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder:
+          (_) => SafeArea(
+            child: Wrap(
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.photo_library),
+                  title: const Text('Pilih dari Galeri'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    _pickFromGallery();
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.camera_alt),
+                  title: const Text('Gunakan Kamera'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    _takePicture();
+                  },
+                ),
+              ],
+            ),
+          ),
+    );
+  }
