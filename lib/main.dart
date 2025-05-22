@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
               displayColor: kTextColor,
             ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        useMaterial3: true, // Opsional jika ingin Material Design 3
+        useMaterial3: true, 
       ),
       home: const HomeScreen(),
     );

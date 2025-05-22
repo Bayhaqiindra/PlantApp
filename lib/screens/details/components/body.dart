@@ -4,7 +4,7 @@ import 'package:praktikum8/screens/details/components/image_and_icons.dart';
 import 'package:praktikum8/screens/details/components/title_and_price.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key); // Tambahkan const constructor
+  const Body({Key? key}) : super(key: key); 
 
   @override
   Widget build(BuildContext context) {

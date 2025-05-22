@@ -45,7 +45,7 @@ class _CameraPageState extends State<CameraPage> {
 
     await controller.initialize();
     _minZoom = await controller.getMinZoomLevel();
-    _maxZoom = await controller.getMaxZoomLevel(); // Fixed this assignment
+    _maxZoom = await controller.getMaxZoomLevel();
     _isZoomSupported = _maxZoom > _minZoom;
     _zoom = _minZoom;
 

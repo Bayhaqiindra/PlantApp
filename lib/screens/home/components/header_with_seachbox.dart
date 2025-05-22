@@ -94,14 +94,14 @@ class _HeaderWithSearchBoxState extends State<HeaderWithSearchBox> {
     return Container(
       margin: const EdgeInsets.only(bottom: kDefaultPadding * 2.5),
       height:
-          widget.size.height * 0.25, // naikkan sedikit supaya ada ruang alamat
+          widget.size.height * 0.25,
       child: Stack(
         children: <Widget>[
           Container(
             padding: const EdgeInsets.only(
               left: kDefaultPadding,
               right: kDefaultPadding,
-              bottom: 36 + kDefaultPadding + 30, // kasih space untuk alamat
+              bottom: 36 + kDefaultPadding + 30,
             ),
             height: widget.size.height * 0.25 - 27,
             decoration: const BoxDecoration(
@@ -117,7 +117,7 @@ class _HeaderWithSearchBoxState extends State<HeaderWithSearchBox> {
                 Row(
                   children: <Widget>[
                     Text(
-                      'Hi Uishopy!',
+                      'Hi Bayhaqi!',
                       style: Theme.of(
                         context,
                       ).textTheme.headlineSmall?.copyWith(
@@ -146,7 +146,7 @@ class _HeaderWithSearchBoxState extends State<HeaderWithSearchBox> {
                   child: Row(
                     children: [
                       Transform.translate(
-                        offset: const Offset(-4, 0), // geser 4 pixel ke kiri
+                        offset: const Offset(-4, 0), 
                         child: const Icon(
                           Icons.location_on,
                           color: Colors.white,

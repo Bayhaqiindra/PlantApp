@@ -27,13 +27,13 @@ class TitleAndPrice extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20, // Ukuran teks Angelica dikecilkan
+                        fontSize: 20,
                       ),
                 ),
                 TextSpan(
                   text: country,
                   style: const TextStyle(
-                    fontSize: 16, // Ukuran teks negara dikecilkan
+                    fontSize: 16,
                     color: kPrimaryColor,
                     fontWeight: FontWeight.w300,
                   ),
@@ -46,7 +46,7 @@ class TitleAndPrice extends StatelessWidget {
             "\$$price",
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: kPrimaryColor,
-                  fontSize: 20, // Ukuran harga disesuaikan jika perlu
+                  fontSize: 20, 
                 ),
           ),
         ],
